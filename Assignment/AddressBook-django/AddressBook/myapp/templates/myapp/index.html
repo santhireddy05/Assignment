@@ -1,0 +1,59 @@
+{% extends 'myapp/base.html' %}
+{% block body %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="banner">
+                <div class="banner-text">
+                    <h1> Address_Book</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-md-6">
+            <h6>Add Address_Book Here</h6>
+            <form class="p-3 shadow" method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                    <input type="text" class="form-control" name="Name" id="Name" placeholder="Name:">
+                </div>
+                <div class="form-group">
+                <input type="text" class="form-control" name="Email" id="Email" placeholder="Email ID:">
+                </div>
+                <div class="form-group">
+                    <input type="date" class="form-control" name="DOB" id="DOB" placeholder="DOB:">
+                </div>
+                <div class="form-group">
+                    <input type="date" class="form-control" name="Address" id="Address" placeholder="Address:">
+                </div>
+                <div class="form-group">
+                    <input type="date" class="form-control" name="Pincode" id="Pincode" placeholder="Pincode">
+                </div>
+                <input class="btn btn-success" type="submit">
+            </form>
+        </div>
+        <div class="col-md-6">
+            <h6> Task to be Completed</h6>
+            {% for address_book in address_book_list %}
+            <div class="shadow card">
+                <div class="card-body">
+                    <h7 class="card-title">{{address_book.Name}}</h7>
+                    <p><b>Email:{{address_book.Email}}</b></p>
+                    <p><b>DOB:{{address_book.DOB}}</b></p>
+                    <p><b>Address:{{address_book.Address}}</b></p>
+                    <p><b>Pincode:{{address_book.Pincode}}</b></p>
+                    <a class="btn btn-danger" href="{% url 'delete' address_book.id%}">Done</a>
+                    <a class="btn btn-success" href="{% url 'update' address_book.id%}">Update</a>
+                </div>
+            </div>
+            <br>
+        {% endfor %}
+        </div>
+        
+    </div>
+</div>
+    
+ 
+{% endblock %}

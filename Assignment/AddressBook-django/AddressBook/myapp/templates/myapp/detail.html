@@ -1,0 +1,15 @@
+{% extends 'myapp/base.html' %}
+{% block body %}
+<div class="shadow card">
+    <div class="card-body">
+        <h7 class="card-title">{{address_book.Name}}</h7>
+        <p><b>Email:{{address_book.Email}}</b></p>
+        <p><b>DOB:{{address_book.DOB}}</b></p>
+        <p><b>Address:{{address_book.Address}}</b></p>
+        <p><b>Pincode:{{address_book.Pincode}}</b></p>
+        <p><b>Langitude and Lattitude:<input type="url">http://postalpincode.in/api/pincode/{{address_book.Pincode}}</input></b></p>
+        <a class="btn btn-danger" href="{% url 'delete' address_book.id%}">Done</a>
+        <a class="btn btn-success" href="{% url 'update' address_book.id%}">Update</a>
+    </div>
+</div>
+{% endblock%}

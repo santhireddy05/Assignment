@@ -1,0 +1,44 @@
+
+
+
+AddressBook Deployment Document
+
+Python Deployment Steps:
+
+1.	Create virtual environment using this command:- “python -m venv address_book_env”
+
+2.	Go to the terminal in project working directory and execute the below commands
+
+Activate virtual environment using this command:-  “source  /address_book_env/bin/activate”
+3.	To copy the code from git using the command:- git clone https://santhammapotha@dev.azure.com/santhammapotha/AddressBook/_git/AddressBook using the credentials.
+    and access code using master branch.
+4.	navigate to the project working directory using the command:- cd /Assignment/AddressBook
+
+5.	Install the packages using the command:- “pip install -r requirements.txt”
+
+6.	Run command python manage.py runserver from here. Below is the sample o/p. Press CTRL+C to quit.
+ 
+
+7.	Run command python manage.py make migrations
+8.	Run command python manage.py migrate
+9.	Run command python manage.py createsuperuser
+Provide username and password
+10.	Run the command python manage.py runserver
+
+
+----------------------------------------------------------------------
+Using fastapi barch access code using fastapi
+
+Run command.,
+
+git checkout branch fastapi
+
+Then access code and run using faStapi.
+
+run the command:
+
+pip install fastapi, uvicorn
+
+py -m venv fastapi_env
+
+uvocorn index:app port--8080 --reload
